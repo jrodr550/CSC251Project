@@ -4,6 +4,7 @@ public class JuanRodriguez_CSC251Project
 {
  public static void main(String[] args)
    {
+      Scanner scanner = new Scanner(System.in);
     System.out.print("Enter Policy Number: ");
         String policyNumber = scanner.nextLine();
         
