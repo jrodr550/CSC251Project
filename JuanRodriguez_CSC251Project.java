@@ -1,38 +1,38 @@
 import java.util.Scanner;
 
-public class JuanRodriguez_CSC251Project
+public class Main
 {
  public static void main(String[] args)
    {
       Scanner scanner = new Scanner(System.in);
     System.out.print("Enter Policy Number: ");
-        String policyNumber = scanner.nextLine();
+        String policyNumber1 = scanner.nextLine();
         
         System.out.print("Enter Provider Name: ");
-        String providerName = scanner.nextLine();
+        String providerName1 = scanner.nextLine();
         
         System.out.print("Enter Policyholder’s First Name: ");
-        String firstName = scanner.nextLine();
+        String firstName1 = scanner.nextLine();
         
         System.out.print("Enter Policyholder’s Last Name: ");
-        String lastName = scanner.nextLine();
+        String lastName1 = scanner.nextLine();
         
         System.out.print("Enter Policyholder’s Age: ");
-        int age = scanner.nextInt();
+        int age1 = scanner.nextInt();
         
         scanner.nextLine(); // Consume newline left-over
         
         System.out.print("Enter Policyholder’s Smoking Status (smoker/non-smoker): ");
-        String smokingStatus = scanner.nextLine();
+        String smokingStatus1 = scanner.nextLine();
         
         System.out.print("Enter Policyholder’s Height (in inches): ");
-        double height = scanner.nextInt();
+        double height1 = scanner.nextDouble();
         
         System.out.print("Enter Policyholder’s Weight (in pounds): ");
-        double weight = scanner.nextInt();
+        double weight1 = scanner.nextDouble();
 
         // Create Policy instance
-        Policy policy = new Policy(policyNumber, providerName, firstName, lastName, age, smokingStatus, height, weight);
+        Policy policy = new Policy(policyNumber1, providerName1, firstName1, lastName1, age1, smokingStatus1, height1, weight1);
         
         // Display all information about the policy
         System.out.println("\nPolicy Information:");
@@ -56,4 +56,3 @@ public class JuanRodriguez_CSC251Project
         scanner.close();
     }
 }
-
