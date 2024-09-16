@@ -7,8 +7,8 @@ public class Policy {
     private String lastName;
     private int age;
     private String smokingStatus; // "smoker" or "non-smoker"
-    private int height; // in inches
-    private int weight; // in pounds
+    private double height; // in inches
+    private double weight; // in pounds
 
     // No-arg constructor with default values
     public Policy() {
@@ -18,13 +18,13 @@ public class Policy {
         this.lastName = "Doe";
         this.age = 30;
         this.smokingStatus = "non-smoker";
-        this.height = 60; // default height 5 feet
-        this.weight = 150; // default weight
+        this.height = 60.0; // default height 5 feet
+        this.weight = 150.0; // default weight
     }
 
     // Constructor with parameters
     public Policy(String policyNumber, String providerName, String firstName, String lastName,
-                  int age, String smokingStatus, int height, int weight) {
+                  int age, String smokingStatus, double height, double weight) {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
         this.firstName = firstName;
@@ -84,19 +84,19 @@ public class Policy {
         this.smokingStatus = smokingStatus;
     }
 
-    public int getHeight() {
+    public double getHeight() {
         return height;
     }
 
-    public void setHeight(int height) {
+    public void setHeight(double height) {
         this.height = height;
     }
 
-    public int getWeight() {
+    public double getWeight() {
         return weight;
     }
 
-    public void setWeight(int weight) {
+    public void setWeight(double weight) {
         this.weight = weight;
     }
 
