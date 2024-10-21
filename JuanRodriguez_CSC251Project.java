@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class JuanRodriguez_CSC251Project {
     public static void main(String[] args) {
         // Create an ArrayList to dynamically store Policy objects
         ArrayList<Policy> policies = new ArrayList<>();
@@ -58,16 +58,16 @@ public class Main {
             System.out.println("\nPolicy Information:");
             System.out.println("Policy Number: " + policy.getPolicyNumber());
             System.out.println("Provider Name: " + policy.getProviderName());
-            System.out.println("Policyholder’s First Name: " + policy.getFirstName());
-            System.out.println("Policyholder’s Last Name: " + policy.getLastName());
-            System.out.println("Policyholder’s Age: " + policy.getAge());
-            System.out.println("Policyholder’s Smoking Status: " + policy.getSmokingStatus());
-            System.out.println("Policyholder’s Height (in inches): " + policy.getHeight());
-            System.out.println("Policyholder’s Weight (in pounds): " + policy.getWeight());
+            System.out.println("Policyholder's First Name: " + policy.getFirstName());
+            System.out.println("Policyholder's Last Name: " + policy.getLastName());
+            System.out.println("Policyholder's Age: " + policy.getAge());
+            System.out.println("Policyholder's Smoking Status: " + policy.getSmokingStatus());
+            System.out.println("Policyholder's Height : " + policy.getHeight()+" inches");
+            System.out.println("Policyholder's Weight : " + policy.getWeight()+" pounds");
 
             // Calculate and display BMI
             double bmi = policy.calculateBMI();
-            System.out.printf("Policyholder’s BMI: %.2f%n", bmi);
+            System.out.printf("Policyholder's BMI: %.2f%n", bmi);
 
             // Calculate and display the insurance policy price
             double policyPrice = policy.calculatePolicyPrice();
@@ -79,4 +79,3 @@ public class Main {
         System.out.println("Number of Policyholders that are non-smokers: " + nonSmokers);
     }
 }
-
