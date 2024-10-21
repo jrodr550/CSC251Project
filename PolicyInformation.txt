@@ -1,0 +1,17 @@
+P123
+BlueCross
+John
+Doe
+45
+smoker
+70
+180
+
+P124
+UnitedHealth
+Jane
+Smith
+30
+non-smoker
+65
+130
