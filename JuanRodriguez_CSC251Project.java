@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class JuanRodriguez_CSC251Project {
+public class Main {
     public static void main(String[] args) {
         // Create an ArrayList to dynamically store Policy objects
         ArrayList<Policy> policies = new ArrayList<>();
