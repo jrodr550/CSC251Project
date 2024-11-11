@@ -6,7 +6,7 @@ public class PolicyDemo {
         // Crear un objeto Policy que contiene el PolicyHolder
         Policy policy = new Policy("P1001", "Best Health Insurance", holder);
 
-        // Mostrar los detalles de la póliza y del titular usando toString()
+        // Mostrar los detalles de la póliza y del titular usando toString() implícitamente
         System.out.println(policy);
 
         // Mostrar el número total de objetos Policy creados
