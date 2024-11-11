@@ -23,7 +23,7 @@ public class Policy {
     }
 
     /**
-     * Constructor that initializes the policy with provided values.
+     * Constructor that initializes the policy with provided values, creating a deep copy of the PolicyHolder.
      *
      * @param policyNumber the policy number
      * @param providerName the provider's name
@@ -32,7 +32,10 @@ public class Policy {
     public Policy(String policyNumber, String providerName, PolicyHolder policyHolder) {
         this.policyNumber = policyNumber;
         this.providerName = providerName;
-        this.policyHolder = policyHolder;
+        // Creating a deep copy of PolicyHolder to avoid exposing the original reference
+        this.policyHolder = new PolicyHolder(policyHolder.getFirstName(), policyHolder.getLastName(),
+                                             policyHolder.getAge(), policyHolder.getSmokingStatus(),
+                                             policyHolder.getHeight(), policyHolder.getWeight());
         policyCount++;
     }
 
@@ -43,12 +46,26 @@ public class Policy {
     public String getProviderName() { return providerName; }
     public void setProviderName(String providerName) { this.providerName = providerName; }
 
-    public PolicyHolder getPolicyHolder() { return policyHolder; }
-    public void setPolicyHolder(PolicyHolder policyHolder) { this.policyHolder = policyHolder; }
+    /**
+     * Returns a copy of the PolicyHolder to prevent external modification.
+     * 
+     * @return a deep copy of the PolicyHolder
+     */
+    public PolicyHolder getPolicyHolder() {
+        return new PolicyHolder(policyHolder.getFirstName(), policyHolder.getLastName(),
+                                policyHolder.getAge(), policyHolder.getSmokingStatus(),
+                                policyHolder.getHeight(), policyHolder.getWeight());
+    }
+
+    public void setPolicyHolder(PolicyHolder policyHolder) {
+        // Setting a deep copy to avoid exposing the original reference
+        this.policyHolder = new PolicyHolder(policyHolder.getFirstName(), policyHolder.getLastName(),
+                                             policyHolder.getAge(), policyHolder.getSmokingStatus(),
+                                             policyHolder.getHeight(), policyHolder.getWeight());
+    }
 
     /**
-     * Method to calculate the price of the insurance policy based on the policyholder's
-     * age, smoking status, and BMI.
+     * Calculates the price of the insurance policy based on the policyholder's age, smoking status, and BMI.
      * 
      * @return the calculated insurance policy price
      */
@@ -56,14 +73,17 @@ public class Policy {
         double baseFee = 600.0;
         double additionalFee = 0.0;
 
+        // Incremento de tarifa basado en la edad
         if (policyHolder.getAge() > 50) {
             additionalFee += 75.0;
         }
 
+        // Incremento de tarifa basado en el estado de fumador
         if ("smoker".equalsIgnoreCase(policyHolder.getSmokingStatus())) {
             additionalFee += 100.0;
         }
 
+        // Incremento de tarifa basado en el BMI
         double bmi = policyHolder.calculateBMI();
         if (bmi > 35) {
             additionalFee += (bmi - 35) * 20.0;
@@ -73,22 +93,18 @@ public class Policy {
     }
 
     /**
-     * Returns a string representation of the policy, including details of the policy and policyholder.
-     *
-     * @return a string containing policy information
-     */
-    @Override
-    public String toString() {
-        return "Policy Number: " + policyNumber +
-               "\nProvider Name: " + providerName +
-               "\n" + policyHolder.toString();
-    }
-    /**
      * Static method to retrieve the number of Policy objects created.
      * 
      * @return the number of Policy objects created
      */
     public static int getPolicyCount() {
         return policyCount;
+    }
+
+    @Override
+    public String toString() {
+        return "Policy Number: " + policyNumber +
+               "\nProvider Name: " + providerName +
+               "\n" + policyHolder.toString();
     }
 }
