@@ -73,15 +73,6 @@ public class Policy {
     }
 
     /**
-     * Static method to retrieve the number of Policy objects created.
-     * 
-     * @return the number of Policy objects created
-     */
-    public static int getPolicyCount() {
-        return policyCount;
-    }
-
-    /**
      * Returns a string representation of the policy, including details of the policy and policyholder.
      *
      * @return a string containing policy information
