@@ -83,4 +83,12 @@ public class Policy {
                "\nProvider Name: " + providerName +
                "\n" + policyHolder.toString();
     }
+    /**
+     * Static method to retrieve the number of Policy objects created.
+     * 
+     * @return the number of Policy objects created
+     */
+    public static int getPolicyCount() {
+        return policyCount;
+    }
 }
