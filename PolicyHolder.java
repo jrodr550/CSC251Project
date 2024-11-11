@@ -3,9 +3,10 @@ public class PolicyHolder {
     private String lastName;
     private int age;
     private String smokingStatus;
-    private double height; // in inches
-    private double weight; // in pounds
+    private double height;
+    private double weight;
 
+    // Constructor
     public PolicyHolder(String firstName, String lastName, int age, String smokingStatus, double height, double weight) {
         this.firstName = firstName;
         this.lastName = lastName;
@@ -15,16 +16,30 @@ public class PolicyHolder {
         this.weight = weight;
     }
 
-    // Getter methods
+    // Getters y Setters
     public String getFirstName() { return firstName; }
-    public String getLastName() { return lastName; }
-    public int getAge() { return age; }
-    public String getSmokingStatus() { return smokingStatus; }
-    public double getHeight() { return height; }
-    public double getWeight() { return weight; }
+    public void setFirstName(String firstName) { this.firstName = firstName; }
 
-    // Method to calculate BMI
+    public String getLastName() { return lastName; }
+    public void setLastName(String lastName) { this.lastName = lastName; }
+
+    public int getAge() { return age; }
+    public void setAge(int age) { this.age = age; }
+
+    public String getSmokingStatus() { return smokingStatus; }
+    public void setSmokingStatus(String smokingStatus) { this.smokingStatus = smokingStatus; }
+
+    public double getHeight() { return height; }
+    public void setHeight(double height) { this.height = height; }
+
+    public double getWeight() { return weight; }
+    public void setWeight(double weight) { this.weight = weight; }
+
+    // Método para calcular el BMI
     public double calculateBMI() {
-        return (weight / (height * height)) * 703;
+        if (height == 0) {
+            throw new IllegalArgumentException("Height cannot be zero");
+        }
+        return (weight * 703.0) / (height * height);
     }
 }
